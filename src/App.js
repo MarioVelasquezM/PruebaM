@@ -1,15 +1,27 @@
-import Navbar from "./Components/navbar/navbar";
-import MainView from "./Components/MainView/main-view";
-import { Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Fragment } from "react";
+import Layout from "./Pages/Layout/layout";
+import Home from "./Pages/Home/home";
+import MainView from "./Components/MainView/main-view";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Navbar />} />{" "}
-    </Routes>
-  );
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "/items",
+          element: <MainView />,
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={routes} />;
 }
 
 export default App;
