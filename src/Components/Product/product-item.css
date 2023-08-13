@@ -1,0 +1,33 @@
+.itemContainer{
+    padding: 20px 50px ;
+
+}
+
+.ContentProduct{
+    display: flex;
+     justify-content: space-between;
+    margin: 16px 0;
+ }
+.detailsProduct{
+    display: flex;
+    gap: 20px;
+}
+ .logoImage{
+
+     height: 100%;
+     width: 100%;
+
+ }
+ .imageProduct{
+     height: 200px;
+     width: 200px;
+     border-radius: 10px;
+ }
+.ItemPrice{
+
+    margin-bottom: 20px;
+
+
+}
+
+

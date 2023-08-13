@@ -1,19 +1,27 @@
 import React from "react";
 import logo from "../Assets/Logo_ML.png";
+import "./product-item.css";
+/*const ProductItem = ('detail,price, Name,site, Envio') => */
 
-const ProductItem = () => {
+const ProductItem = ({ product }) => {
   return (
-    <div className="ContentBox">
-      <img src={logo} alt="logo" className="ImageProduct"></img>
+    <div className="itemContainer">
+      <div className="ContentProduct">
+        <div className="detailsProduct">
+          <div className="imageProduct">
+            <img src={logo} alt="logo" className="logoImage"></img>
+          </div>
 
-      <div className="">
-        <h3>1900$</h3>
-        <p>carrito</p>
-          
+          <div className="ProductInfo">
+            <h3 className="ItemPrice">{product.price}</h3>
+            <p className="ProductDescription">{product.details}</p>
+          </div>
+        </div>
+        <div>
+          <span>{product.storeplace}</span>
+        </div>
       </div>
-      <div>
-        <span>Capital Federal</span>
-      </div>
+      <hr />
     </div>
   );
 };
