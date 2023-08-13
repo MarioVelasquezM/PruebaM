@@ -1,13 +1,15 @@
 import Navbar from "./Components/navbar/navbar";
-import {Fragment} from "react";
+import MainView from "./Components/MainView/main-view";
+import { Fragment } from "react";
 
 function App() {
   return (
-      <Fragment>
-        <div className="container mx-auto">
-            <Navbar />
-        </div>
-      </Fragment>);
+    <Fragment>
+      <Navbar />
+
+      <MainView />
+    </Fragment>
+  );
 }
 
 export default App;
