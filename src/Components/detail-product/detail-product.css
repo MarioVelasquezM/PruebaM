@@ -1,0 +1,46 @@
+.details {
+  display: flex;
+}
+.img {
+  width: 65%;
+
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+.Detalles {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 30px;
+  font-family: Tahoma;
+}
+.Btn {
+  background-color: dodgerblue;
+  border-radius: 5px;
+  border: none;
+  padding: 20px;
+  color: aliceblue;
+  cursor: pointer;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.Description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+.detail-container {
+  padding-left: 15px;
+  padding-bottom: 15px;
+}

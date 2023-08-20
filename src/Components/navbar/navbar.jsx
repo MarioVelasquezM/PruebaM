@@ -3,6 +3,7 @@ import Logo from "../Assets/Logo_ML.png";
 import SearchIcon from "../Assets/ic_Search.png";
 import "./navbar.css";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -15,7 +16,15 @@ const Navbar = () => {
 
   return (
     <nav className="bar">
-      <img src={Logo} alt="ManitaLogo" className="Logo" />
+      <img
+        style={{ cursor: "pointer" }}
+        src={Logo}
+        alt="ManitaLogo"
+        className="Logo"
+        onClick={() => {
+          navigate("/");
+        }}
+      />
 
       <form onSubmit={handleSubmitSearchBar} className="barsearch">
         <input

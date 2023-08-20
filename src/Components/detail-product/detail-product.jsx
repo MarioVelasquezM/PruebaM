@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import "./detail-product.css";
+import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 const baseUrlApi = "https://api.mercadolibre.com/items/";
-
+let usdolar = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "ARS",
+});
 const DetailProduct = () => {
   const [product, setProduct] = useState([]);
   const [ProductDescription, setDescription] = useState([]);
   const [isLoading, setIsLoading] = useState({
-    product: true,
-    description: true,
+    product: false,
+    description: false,
   });
   let { id } = useParams();
 
@@ -28,7 +32,7 @@ const DetailProduct = () => {
         setIsLoading((prevState) => {
           return {
             ...prevState,
-            product: false,
+            product: true,
           };
         });
       })
@@ -38,26 +42,46 @@ const DetailProduct = () => {
     loadDescription()
       .then((data) => {
         setDescription(data.plain_text);
-          setIsLoading((prevState) => {
-              return {
-                  ...prevState,
-                  description: false,
-              };
-          });
+        setIsLoading((prevState) => {
+          return {
+            ...prevState,
+            description: true,
+          };
+        });
       })
       .catch((e) => console.error(e));
   }, [id]);
-
-
-
+  const clickHandler = () => {
+    alert("doit");
+  };
   return (
-      { isLoading.description && ( <div className="detail-container">
-      {/*<div className="details">
-        <img src={product?.pictures[1]?.url || ""} alt=" del producto" />
-      </div>
-      <h4>Descripcion del producto</h4>
-      <div>{ProductDescription || ""}</div>*/}
-    </div>)}
+    <Fragment>
+      {isLoading.description && isLoading.product && (
+        <div className="detail-container">
+          <div className="details">
+            <div className="main">
+              <img
+                className="img"
+                src={product.pictures[0].url}
+                alt=" del producto"
+              />
+              <div className="Description">
+                <h4>Descripcion del producto</h4>
+                <p>{ProductDescription}</p>
+              </div>
+            </div>
+            <div className="Detalles">
+              <span>Cantidad Vendidas: {product.sold_quantity}</span>
+              <h3>{product.title}</h3>
+              <h2>{usdolar.format(product.price)}</h2>
+              <button type="button" className="Btn" onClick={clickHandler}>
+                Comprarme
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </Fragment>
   );
 };
 export default DetailProduct;
