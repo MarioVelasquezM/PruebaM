@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../Assets/ic_shipping.png";
 import "./product-item.css";
 import { useNavigate } from "react-router";
-/*const ProductItem = ('detail,price, Name,site, Envio') => */
+
 let usdolar = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "ARS",
